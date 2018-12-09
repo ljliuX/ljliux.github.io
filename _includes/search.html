@@ -1,0 +1,15 @@
+<div class="form-group">
+    <label for="searchInput">搜索</label>   
+    <input id="searchInput" type="text" class="form-control" placeholder="请输入关键字">
+</div>
+<ul id="searchResult" class="list-group list-group-flush"></ul>
+
+<script src="https://cdn.bootcss.com/simple-jekyll-search/1.7.1/simple-jekyll-search.js"></script>
+<script>
+    SimpleJekyllSearch({
+        searchInput: document.getElementById('searchInput'),
+        resultsContainer: document.getElementById('searchResult'),
+        json: '/search.json',
+        searchResultTemplate: '<li class="list-group-item"><a href="{url}">{title}</a></li>'
+    })
+</script>
