@@ -1,0 +1,9 @@
+name: 编程笔记
+
+timezone: Asia/Shanghai
+markdown: kramdown
+highlighter: rouge
+
+exclude:
+  - LICENSE
+  - README.md
