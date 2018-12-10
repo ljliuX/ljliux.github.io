@@ -1,13 +1,5 @@
 ---
 layout: default
 ---
-<h1 class="mt-3">{{ page.title }}</h1>
 
-<hr>
-<p>
-    <span>时间：{{ page.date | date: "%Y-%m-%d" }} |</span>
-    <span>字数：{{ page.content | strip_html | strip_newlines | remove: " " | size }}</span>
-</p>
-<hr>
-
-{{ content }}
+{{ content }}  

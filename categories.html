@@ -1,0 +1,47 @@
+---
+layout: default
+title: Categories
+tagline: 物以类聚
+---
+
+{% if site.categories.first[0] == null %}
+    {% for category in site.categories %}
+        <a href="/categories.html#{{ category }}-ref">
+            <button type="button" class="btn btn-secondary btn-sm">
+                {{ category | join: "/" }} 
+                <span class="badge badge-light badge-pill">{{ site.categories[category].size }}</span>
+            </button>
+        </a>
+    {% endfor %}
+{% else %}
+    {% for category in site.categories %}
+    <a href="/categories.html#{{ category[0] }}-ref">
+        <button type="button" class="btn btn-secondary btn-sm">
+            {{ category[0] | join: "/" }} 
+            <span class="badge badge-light badge-pill">{{ site.categories[1].size }}</span>
+        </button>
+    </a>
+    {% endfor %}
+{% endif %}
+
+{% for category in site.categories %}
+    <h2 id="{{ category[0] }}-ref">{{ category[0] | join: "/" }}</h2>
+    <ul>
+        {% for node in category[1] %}
+            {% if node.title != null %}
+                {% if group == null or group == node.group %}
+                    {% if page.url == node.url %}
+                        <li>
+                            <a href="{{ node.url }}">{{ node.title }}</a>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="{{ node.url }}">{{ node.title }}</a>
+                            {% if node.tagline %}<small> {{ node.tagline }}</small>{% endif %}
+                        </li>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endfor %}
